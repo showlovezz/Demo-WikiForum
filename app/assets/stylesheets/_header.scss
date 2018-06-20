@@ -1,0 +1,22 @@
+nav.navbar{
+	.container{
+		.navbar-brand{
+			color: #fff;
+		}
+		.navbar-brand:hover{
+			color: #CC5500;
+		}
+	}
+	.collapse{
+		ul.navbar-nav{
+			li.nav-item{
+				.nav-link{
+					color: #fff;
+				}
+				.nav-link:hover{
+					color: #CC5500;
+				}
+			}
+		}
+	}
+}
