@@ -1,15 +1,29 @@
-<h1>Index page</h1>
+<section id="section_wiki_index">
+	<div class="container">
+		<div class="row">
 
-<% @articles.each do |article| %>
-	<ul>
-		<li>
-			<%= article.title %>
-			Published at <%= article.created_at.strftime("%b %d, %Y") %>
-			<%= article.content %>
-			<%= link_to "Show", article_path(article) %>
-			<%= link_to "Edit", edit_article_path(article) %>
-			<%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
-		</li>
-	</ul>
-<% end %>
-<%= link_to "New Article", new_article_path %>
+			<div class="col-4">
+				<%= render "list_group" %>
+			</div>
+
+			<div class="col-8">
+				<% @articles.each do |article| %>
+					<%= link_to article_path(article), style: "text-decoration: none;" do %>
+						<div class="card border-info mb-3">
+						  <div class="card-header border-info"><i class="fab fa-odnoklassniki"></i>Wiki</div>
+						  <div class="card-body">
+						    <h5 class="card-title"><%= article.title %></h5>
+						    <p class="card-text"><%= truncate(article.content, length: 270) %></p>
+						  </div>
+						  <div class="card-footer border-info">
+						  	Published at <%= article.created_at.strftime("%b %d, %Y") %>
+						  </div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+
+
+		</div>
+	</div>
+</section>

@@ -1,0 +1,22 @@
+#section_wiki_index{
+	.container{
+		.row{
+			.col-8{
+				.card{
+					.card-header{
+						color: #000;
+						i.fab{
+							margin-right: 5px;
+						}
+					}
+					.card-body{
+						color: #000;
+					}
+					.card-footer{
+						color: #000;
+					}
+				}
+			}
+		}
+	}
+}
