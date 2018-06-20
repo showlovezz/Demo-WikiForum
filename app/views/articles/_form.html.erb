@@ -1,21 +1,29 @@
-<%= form_for @article do |f| %>
-
-	<div class="form-group">
-		<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true} %>
+<section id="section_wiki_form">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-4">
+				<%= render "list_group" %>
+			</div>
+			<div class="col-8">
+				<%= form_for @article do |f| %>
+					<div class="form-group">
+						<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label :title, "Title：" %>
+						<%= f.text_field :title, class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= f.label :content, "Content：" %>
+						<%= f.text_area :content, class: "form-control", rows: "10" %>
+					</div>
+					<div class="form-group float-right">
+						<%= f.submit class: "btn btn-success btn-lg" %>
+					</div>
+				<% end %>
+			</div>
+		
+		</div>
 	</div>
-
-	<div class="form-group">
-		<%= f.label :title, "Title" %>
-		<%= f.text_field :title %>
-	</div>
-
-	<div class="form-group">
-		<%= f.label :content, "Content" %>
-		<%= f.text_area :content %>
-	</div>
-
-	<div class="form-group">
-		<%= f.submit %>
-	</div>
-	
-<% end %>
+</section>
