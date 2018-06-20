@@ -1,3 +1,29 @@
-<%= @article.title %>
-
-<%= @article.content %>
+<section id="section_wiki_show">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-4">
+				<%= render "list_group" %>
+			</div>
+			<div class="col-8">
+				<div class="card border-info mb-3">
+				  <div class="card-header border-info"><i class="fab fa-odnoklassniki"></i>Wiki</div>
+				  <div class="card-body">
+				    <h5 class="card-title"><%= @article.title %></h5>
+				    <p class="card-text"><%= @article.content %></p>
+				  </div>
+				  <div class="card-footer border-info">
+				  	Published at <%= @article.created_at.strftime("%b %d, %Y") %>
+				  </div>
+				</div>
+				<% if user_signed_in? %>
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<%= link_to "Edit", edit_article_path(@article), class: "btn btn-secondary" %>
+					<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+				</div>
+				<% end %>
+			</div>
+		
+		</div>
+	</div>
+</section>
